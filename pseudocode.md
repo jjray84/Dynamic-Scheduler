@@ -1,4 +1,4 @@
-# Psuedocode Outline
+# Pseudocode Outline
 This markup will serve as a guide for how we want to structure our programming logic for our web app. Topics are free to be added and removed as we revise our wireframe and MVP functionality. 
 
 ## Navbar
