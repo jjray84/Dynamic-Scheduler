@@ -23,7 +23,7 @@ Set MAX Hours: ENTER Max hours for interval, SAVE to storage
 ## Calendar
 USING third-party api, DISPLAY time
 
-## Carosel
+## Carousel
 USING third-party api: DISPLAY boxes of dates <br>
 IF dates are in the past, DISABLE box functionality and set COLOR to gray <br>
 MANUALLY enter employee name and availability <br>
