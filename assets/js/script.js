@@ -49,7 +49,6 @@ function renderNotes () {
         var entry = notesList[i];
         console.log(entry);
         var noteItem = $(`<p>${entry.noteTitle}: ${entry.noteDetails}</p>`);
-        //noteItem.innerHTML = `${entry.noteTitle}`;
         console.log(noteItem);
         notesArea.append(noteItem);
     }
@@ -65,15 +64,16 @@ console.log(today.format('MMM D, YYYY'));
 
 
 
-document.getElementById('newEmployee').addEventListener('click', function() {
-    localStorage.setItem('info',
-    JSON.stringify({ name: "name", status: "FT/PT", daysAvailable: "Su, M, T, W, Th, F, Sa"})
-    );
-    updateUI();
-})
+// document.getElementById('newEmployee').addEventListener('click', function() {
+//     localStorage.setItem('info',
+//     JSON.stringify({ name: "name", status: "FT/PT", daysAvailable: "Su, M, T, W, Th, F, Sa"})
+//     );
+//     updateUI();
+// })
 
 //Event Listener for the add note button
 addNoteBtn.on("click", addNote);
+// addNoteBtn.addEventListener('click', addNote);
 
 //Function for when a user adds a new note
 function addNote (event) {
