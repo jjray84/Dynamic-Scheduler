@@ -6,7 +6,7 @@ var addNoteBtn = $('#addNoteBtn')
 //Populates the notes area with the saved notes.
 function renderNotes () {
     notesArea.innerHTML = '';  
-    notesList = [1, 2, 3]; 
+    // notesList = [1, 2, 3]; 
     for (var i = 0; i<notesList.length; i++) {
         var entry = notesList[i];
         console.log(entry);
@@ -32,6 +32,18 @@ function addNote (event) {
     noteDetails: $('#noteDetails').val()
   };
   console.log(newNote);
+  var storedNotesList = JSON.parse(localStorage.getItem("notes"));
+  console.log(storedNotesList);
+  console.log(typeof storedNotesList);
+  if (storedNotesList == null) {
+    notesList[newNote]
+  } else {
+    notesList = storedNotesList;
+    notesList.push(newNote)
+  }
+  console.log(storedNotesList);
+  localStorage.setItem('notes', JSON.stringify(notesList));
+  renderNotes();
 }
 
 
