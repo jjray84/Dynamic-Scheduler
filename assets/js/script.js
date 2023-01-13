@@ -1,6 +1,7 @@
 var today = dayjs();
 var notesList = [];
 var notesArea = $('#notesArea');
+var addNoteBtn = $('#addNoteBtn')
 
 //Populates the notes area with the saved notes.
 function renderNotes () {
@@ -20,6 +21,19 @@ function renderNotes () {
 renderNotes();
 
 console.log(today.format('MMM D, YYYY'));
+//Event Listener for the add note button
+addNoteBtn.on("click", addNote);
+
+//Function for when a user adds a new note
+function addNote (event) {
+  event.preventDefault();
+  var newNote = {
+    noteTitle: $('#noteTitle').val(),
+    noteDetails: $('#noteDetails').val()
+  };
+  console.log(newNote);
+}
+
 
 //Displays the add note dialog box
 $( function() {
@@ -35,7 +49,7 @@ $( function() {
     }
   });
 
-  $( "#addNoteBtn" ).on( "click", function() {
+  $( "#noteDialog" ).on( "click", function() {
     $( "#dialog" ).dialog( "open" );
   });
 } );
