@@ -1,5 +1,4 @@
-var requestURL =  "https://holidayapi.com/v1/holidays?pretty&key=b23e3aec-f674-49b8-a274-106b66386c78&country=US&year=2022";
-
+var requestURL = 'https://date.nager.at/api/v3/publicholidays/2023/US';
 fetch(requestURL)
     .then(function (response) {
       return response.json();
@@ -7,3 +6,7 @@ fetch(requestURL)
     .then(function (data) {
       console.log(data);
     });
+
+
+
+
