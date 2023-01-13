@@ -1,0 +1,41 @@
+/* styling for day js row in right large column */
+.dayjsRow {
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  margin-bottom: 20px;
+}
+
+/* styling for the calendar week view tables */
+/* Equal width */
+.col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+/* Add gutters */
+.col {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* styling for the borders around calendar days */
+.calendarBorders {
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.notesRow {
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  margin-top: 20px;
+}
