@@ -6,19 +6,23 @@ var addNoteBtn = $('#addNoteBtn')
 //Populates the notes area with the saved notes.
 function renderNotes () {
     notesArea.innerHTML = '';  
+    notesList = notesFromStorage();
     // notesList = [1, 2, 3]; 
     for (var i = 0; i<notesList.length; i++) {
         var entry = notesList[i];
         console.log(entry);
-        var noteItem = $('<p></p>');
-        noteItem.text(entry);
+        var noteItem = $(`<p>${entry.noteTitle}: ${entry.noteDetails}</p>`);
+        //noteItem.innerHTML = `${entry.noteTitle}`;
         console.log(noteItem);
         notesArea.append(noteItem);
     }
 
   };
 
+//Logic to run when the page initializes
+function init() {
 renderNotes();
+};
 
 console.log(today.format('MMM D, YYYY'));
 //Event Listener for the add note button
@@ -32,9 +36,8 @@ function addNote (event) {
     noteDetails: $('#noteDetails').val()
   };
   console.log(newNote);
-  var storedNotesList = JSON.parse(localStorage.getItem("notes"));
+  var storedNotesList = notesFromStorage();
   console.log(storedNotesList);
-  console.log(typeof storedNotesList);
   if (storedNotesList == null) {
     notesList[newNote]
   } else {
@@ -46,6 +49,9 @@ function addNote (event) {
   renderNotes();
 }
 
+function notesFromStorage () {
+  return JSON.parse(localStorage.getItem("notes"));
+}
 
 //Displays the add note dialog box
 $( function() {
@@ -65,3 +71,5 @@ $( function() {
     $( "#dialog" ).dialog( "open" );
   });
 } );
+
+init();
