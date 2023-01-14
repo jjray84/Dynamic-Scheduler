@@ -1,3 +1,4 @@
+
 var today = dayjs();
 var notesList = [];
 var notesArea = $('#notesArea');
@@ -57,7 +58,7 @@ function renderNotes () {
         notesArea.append(noteItem);
     }
   }
-};
+}
 
 function renderWeek(){
     var element = document.getElementById('dayjsrow');
@@ -100,6 +101,39 @@ function generateSchedule(){
         }
         element.innerHTML = text;
     }
+
+    var checkHolidays = function(){
+        var day = today.day();
+        var monday = today.day(day === 0 ? -6 : 1);
+        var days = [];
+        for (var i = 0; i < 7; i++) {
+            var d = monday.add(i, 'day');
+            days.push(d.format('YYYY-MM-DD'));
+        }
+
+        // //fetch holiday data 
+        var requestURL = 'https://date.nager.at/api/v3/publicholidays/2023/US';
+
+        fetch(requestURL)
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (data) {
+              for(var i=0; i<data.length; i++){
+                for(var k=0; k<days.length; k++){
+                    if(data[i].date == days[k]){
+                       console.log(data[i].name);
+                       var element = document.getElementById('day' + k);
+                       element.innerHTML = data[i].name;
+                       element.style.backgroundColor = 'yellow';
+                    }
+                }
+              }
+            });
+    }
+
+    checkHolidays();
+
 }
 
 //Logic to run when the page initializes
@@ -110,15 +144,9 @@ renderWeek(); //sets the date of the current week in the box above calendar
 generateSchedule(); //populates the date boxes based on daysAvail in listOfEmployees, using matchDayAvail function
 
 
-};
+}
 
 
-// document.getElementById('newEmployee').addEventListener('click', function() {
-//     localStorage.setItem('info',
-//     JSON.stringify({ name: "name", status: "FT/PT", daysAvailable: "Su, M, T, W, Th, F, Sa"})
-//     );
-//     updateUI();
-// })
 
 //Event Listener for the add note button
 addNoteBtn.on("click", addNote);
