@@ -57,12 +57,10 @@ function renderNotes () {
 
 //Logic to run when the page initializes
 function init() {
-renderNotes();
-};
+  renderNotes();
+}
 
-console.log(today.format('MMM D, YYYY'));
-
-
+console.log(today.format("MMM D, YYYY"));
 
 // document.getElementById('newEmployee').addEventListener('click', function() {
 //     localStorage.setItem('info',
@@ -76,47 +74,47 @@ addNoteBtn.on("click", addNote);
 // addNoteBtn.addEventListener('click', addNote);
 
 //Function for when a user adds a new note
-function addNote (event) {
+function addNote(event) {
   event.preventDefault();
   var newNote = {
-    noteTitle: $('#noteTitle').val(),
-    noteDetails: $('#noteDetails').val()
+    noteTitle: $("#noteTitle").val(),
+    noteDetails: $("#noteDetails").val(),
   };
   console.log(newNote);
   var storedNotesList = notesFromStorage();
   console.log(storedNotesList);
   if (storedNotesList == null) {
-    notesList[newNote]
+    notesList[newNote];
   } else {
     notesList = storedNotesList;
-    notesList.push(newNote)
+    notesList.push(newNote);
   }
   console.log(storedNotesList);
-  localStorage.setItem('notes', JSON.stringify(notesList));
+  localStorage.setItem("notes", JSON.stringify(notesList));
   renderNotes();
 }
 
-function notesFromStorage () {
+function notesFromStorage() {
   return JSON.parse(localStorage.getItem("notes"));
 }
 
 //Displays the add note dialog box
-$( function() {
-  $( "#dialog" ).dialog({
+$(function () {
+  $("#dialog").dialog({
     autoOpen: false,
     show: {
       effect: "blind",
-      duration: 1000
+      duration: 1000,
     },
     hide: {
       effect: "explode",
-      duration: 1000
-    }
+      duration: 1000,
+    },
   });
 
-  $( "#noteDialog" ).on( "click", function() {
-    $( "#dialog" ).dialog( "open" );
+  $("#noteDialog").on("click", function () {
+    $("#dialog").dialog("open");
   });
-} );
+});
 
 init();
