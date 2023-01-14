@@ -74,10 +74,39 @@ function getCurrentWeek() {
     return days;
 }
 
+function matchDayAvail(day) {
+    var matchingEmployees = [];
+    for (var key in listOfEmployees) {
+        if (listOfEmployees[key].daysAvail.indexOf(day) !== -1) {
+            matchingEmployees.push(listOfEmployees[key].name);
+        }
+    }
+    return matchingEmployees;
+}
+
+function generateSchedule(){
+
+    var weekdays = ['M','Tu','W','Th','F','Sa','Su'];
+    for(var i = 0; i< weekdays.length; i++){
+        var futs = weekdays[i];
+        var tutu = matchDayAvail(futs);
+        var element = document.getElementById('day' + i);
+        var text = " ";
+        for(var j=0; j< tutu.length; j++){
+            text += tutu[j] + "<br>";
+        }
+        element.innerHTML = text;
+    }
+}
+
 //Logic to run when the page initializes
 function init() {
 //renderNotes();
-renderWeek();
+
+renderWeek(); //sets the date of the current week in the box above calendar
+generateSchedule(); //populates the date boxes based on daysAvail in listOfEmployees, using matchDayAvail function
+
+
 };
 
 
