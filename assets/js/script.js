@@ -71,6 +71,22 @@ console.log(today.format('MMM D, YYYY'));
 //     updateUI();
 // })
 
+function addNewEmployee(event) {
+  event.preventDefault();
+  var newHire = {
+    name: "",
+    status: "",
+    daysAvail: "",
+  };
+  console.log(newHire);
+  var storedListOfEmployees = listOfEmployees();
+  console.log(storedListOfEmployees);
+  localStorage.setItem('newEmployee',
+  JSON.stringify({name: "name", status: "FT/PT", daysAvailable: "Su, M, T, W, Th, F, Sa"})
+  );
+  return addNewEmployee;
+  }
+
 //Event Listener for the add note button
 addNoteBtn.on("click", addNote);
 // addNoteBtn.addEventListener('click', addNote);
