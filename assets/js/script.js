@@ -135,7 +135,7 @@ function addNote(event) {
   var storedNotesList = notesFromStorage();
   console.log(storedNotesList);
   if (storedNotesList == null) {
-    notesList[newNote];
+    notesList = [newNote];
   } else {
     notesList = storedNotesList;
     notesList.push(newNote);
