@@ -40,6 +40,7 @@ var listOfEmployees = {
     },
 };
 
+
 //Populates the notes area with the saved notes.
 function renderNotes () {
     notesArea.innerHTML = '';  
