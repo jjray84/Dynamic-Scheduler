@@ -2,6 +2,7 @@ var today = dayjs();
 var notesList = [];
 var notesArea = $('#notesArea');
 var addNoteBtn = $('#addNoteBtn');
+var weekOf = getCurrentWeek();
 var listOfEmployees = {
     Jan_Levinson: {
       name: "Jan",
@@ -53,14 +54,47 @@ function renderNotes () {
         notesArea.append(noteItem);
     }
 
-  };
+};
+
+function renderWeek(){
+    var element = document.getElementById('dayjsrow');
+    element.textContent = weekOf[0] + ' - ' + weekOf[6];
+
+}
+
+function getCurrentWeek() {
+
+    var day = today.day();
+    var monday = today.day(day === 0 ? -6 : 1);
+    var days = [];
+    for (var i = 0; i < 7; i++) {
+        var d = monday.add(i, 'day');
+        days.push(d.format('MMM D, YYYY'));
+    }
+    return days;
+}
 
 //Logic to run when the page initializes
 function init() {
-renderNotes();
+//renderNotes();
+renderWeek();
+
+
+
+
+
+
+
+
+
+
 };
 
 console.log(today.format('MMM D, YYYY'));
+
+/*listOfEmployees.Jim_Halpert = { name: "Jim", status: "F.T.", daysAvail: "M, Tu, W, Th, F" };
+This is the notation for adding a new employee to the the list
+*/
 
 
 
