@@ -46,7 +46,9 @@ var listOfEmployees = {
 function renderNotes () {
     notesArea.innerHTML = '';  
     notesList = notesFromStorage();
-    // notesList = [1, 2, 3]; 
+    if (notesList == null) {
+      return
+    } else {
     for (var i = 0; i<notesList.length; i++) {
         var entry = notesList[i];
         console.log(entry);
@@ -54,7 +56,7 @@ function renderNotes () {
         console.log(noteItem);
         notesArea.append(noteItem);
     }
-
+  }
 };
 
 function renderWeek(){
@@ -102,7 +104,7 @@ function generateSchedule(){
 
 //Logic to run when the page initializes
 function init() {
-//renderNotes();
+renderNotes();
 
 renderWeek(); //sets the date of the current week in the box above calendar
 generateSchedule(); //populates the date boxes based on daysAvail in listOfEmployees, using matchDayAvail function
