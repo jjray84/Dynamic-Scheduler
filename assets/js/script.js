@@ -139,7 +139,6 @@ function generateSchedule(){
 //Logic to run when the page initializes
 function init() {
 renderNotes();
-
 renderWeek(); //sets the date of the current week in the box above calendar
 generateSchedule(); //populates the date boxes based on daysAvail in listOfEmployees, using matchDayAvail function
 
@@ -196,4 +195,7 @@ $(function () {
   });
 });
 
+$('#nav').click(function() {
+    location.reload();
+});
 init();

@@ -39,3 +39,9 @@
   border-color: black;
   margin-top: 20px;
 }
+
+#nav:hover {
+cursor: pointer;
+transform: scale(1.1);
+color: black;
+}
