@@ -4,7 +4,6 @@ This markup will serve as a guide for how we want to structure our programming l
 ## Navbar
 ~~Title: ON mouse click, refresh the page ~~<br>
 ~~Employee List: ON mouse click, take user to new page of employee info ~~<br>
-Hours Remaining: SUM calendar hours, and DISPLAY hours remaining
 
 
 ~~## Employee Info
@@ -15,10 +14,14 @@ Employee attributes displayed in a format TBD <br>
 
 
 ## CTRL Panel
-Add New Employee: ON mouse click, OPEN a form to enter attributes. <br>
-* Save btn: ON mouse click, SET page data to local storage <br>
-* ON Submit, PUSH New Employee into array of employee objects <br>
-Set MAX Hours: ENTER Max hours for interval, SAVE to storage
+Add New Employee button: ON mouse click, OPEN a form to enter attributes. <br>
+* ON Submit button click, create object then add object into Employee list array of objects. (push?) <br>
+* Save btn: ON mouse click, SAVE ALL employee data to local storage (saves the list of employees in local storage) <br>
+* Remove employee button 
+* *(same form/element?)
+**** potentially add a new day available for a singular employee.
+
+
 
 
 
@@ -26,6 +29,10 @@ Set MAX Hours: ENTER Max hours for interval, SAVE to storage
 ~~USING third-party api, DISPLAY current week~~
 ~~DISPLAY employee info from a premade list, based on availability~~
 ~~USING third-party api: UPDATE box info with public holidays and change the color ~~<br>
+
+
+## Stretch Goals
+* Being able to go beyond current week to schedule in advance.
 
 
 
