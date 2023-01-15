@@ -46,11 +46,11 @@ function createEmployeeCard() {
     console.log(pichu);
     document.getElementById(pichu).textContent = entry.name;
 
-    var apple = "status" + (i + 1);
+    var pikachu = "status" + (i + 1);
     console.log(pikachu);
     document.getElementById(pikachu).textContent = entry.status;
 
-    var kiwi = "days" + (i + 1);
+    var raichu = "days" + (i + 1);
     console.log(raichu);
     document.getElementById(raichu).textContent = entry.daysAvail;
   }
