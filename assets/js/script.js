@@ -18,64 +18,39 @@ function closeForm() {
 }
 
 function submitForm() {
-  $("#days-of-week input:checkbox:checked").each(function () {
-    console.log($(this).val());
+    var status;
+    var daysAvail = [];
+
+  $("#status input:checkbox:checked").each(function () {
+    //console.log($(this).val());
+    status = $(this).val();
   });
 
-  // let name = document.getElementById("name").value;
-  // let status = document.getElementById("status").value;
-  // let daysAvail = document.getElementById("daysAvail").value;
+  $("#days-of-week input:checkbox:checked").each(function () {
+   // console.log($(this).val());
+    daysAvail.push($(this).val());
+  });
 
-  // let newEmployee = {
-  //   name: name,
-  //   status: status,
-  //   daysAvail: daysAvail
+
+  let name = document.getElementById("name").value;
+
+  let newEmployee = {
+    name: name,
+    status: status,
+    daysAvail: daysAvail
+  }
+
+
+
+console.log(newEmployee);
+listOfEmployees.push(newEmployee);
+localStorage.setItem("employees", JSON.stringify(listOfEmployees));
+console.log(listOfEmployees);
+closeForm();
+init();
 }
+  
 
-// listOfEmployees.push(newEmployee);
-// localStorage.setItem("employees", JSON.stringify(listOfEmployees));
-// console.log(listOfEmployees);
-// closeForm();
-// init();
-// }
-
-// var listOfEmployees = {
-//     Jan_Levinson: {
-//       name: "Jan",
-//       status: "F.T.",
-//       daysAvail: "Su, M, Tu, W, Th, F, Sa"
-//     },
-
-//     Dwight_Schrute: {
-//       name: "Dwight",
-//       status: "F.T.",
-//       daysAvail: "Su, M, W, Th, F, Sa"
-//     },
-
-//     Toby_Flanderson: {
-//       name: "Toby",
-//       Status: "P.T.",
-//       daysAvail: "Th, F, Sa"
-//     },
-
-//     Phyllis_Lapin_Vance: {
-//       name: "Phyllis",
-//       status: "F.T.",
-//       daysAvail: "Su, T, Th, Sa"
-//     },
-
-//     Darryl_Philbin: {
-//       name: "Darryl",
-//       status: "P.T.",
-//       daysAvail: "F, Sa, Su",
-//     },
-
-//     Michael_Scott: {
-//       name: "Michael",
-//       status: "P.T.",
-//       daysAvail: "Tu, W, F, Sa",
-//     },
-// };
 
 //Populates the notes area with the saved notes.
 
@@ -242,5 +217,6 @@ $("#nav").click(function () {
 });
 
 init();
+
 //this is gonna be our save button
-saveEmployeesToStorage();
+//saveEmployeesToStorage();
