@@ -47,16 +47,35 @@
                   <div id="formContainer" style="display:none;">
                     <form id="employeeForm" class="form-group">
                       <label for="name">Name:</label>
-                      <input type="text" id="name" name="name" class="form-control"><br>
+                      <input type="text" id="name" name="name" class="form-control">
                       <label for="status">Status:</label>
-                      <input type="text" id="status" name="status" class="form-control"><br>
+                      <!-- <input type="text" id="status" name="status" class="form-control"><br> -->
+                    <div>
+                      <input type="checkbox" name="status" value="Full Time" id="full-time">Full Time
+                      <input type="checkbox" name="status" value="Part Time" id="part-time">Part Time
+                      <!-- checkbox for part time or full time -->
+                    </div>  
+                  
                       <label for="daysAvail">Days Available:</label>
-                      <input type="text" id="daysAvail" name="daysAvail" class="form-control"><br>
+                      <!-- <input type="text" id="daysAvail" name="daysAvail" class="form-control"><br> -->
+                      <div id="days-of-week">
+                        <input type="checkbox" name="days" value="M"> Mon
+                        <input type="checkbox" name="days" value="Tu"> Tue
+                        <input type="checkbox" name="days" value="W"> Wed
+                        <input type="checkbox" name="days" value="Th"> Thu
+                        <input type="checkbox" name="days" value="F"> Fri
+                        <input type="checkbox" name="days" value="Sa"> Sat
+                        <input type="checkbox" name="days" value="Su"> Sun
+                      </div>
+                      
                       <input type="button" value="Submit" class="btn btn-success" onclick="submitForm()">
                       <input type="button" value="Close" class="btn btn-danger" onclick="closeForm()">
+                    
                     </form>
+                  
                   </div>
               </div>
+              
               <div class="border border-dark bg-white text-dark mb-2">
                 Inner Column 2
               </div>
