@@ -10,7 +10,11 @@ if (listOfEmployees == null) {
 }
 
 function openForm() {
+  if(document.getElementById("formContainer").style.display === "block"){
+    document.getElementById("formContainer").style.display = "none";
+  } else
   document.getElementById("formContainer").style.display = "block";
+  
 }
 
 function closeForm() {
