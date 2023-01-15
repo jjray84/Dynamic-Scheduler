@@ -77,7 +77,19 @@
               </div>
               
               <div class="border border-dark bg-white text-dark mb-2">
-                Inner Column 2
+                <!--REMOVE EMPLOYEE SECTION  -->
+                <!-- <button class="btn btn-primary" onclick="openForm()">Remove Employee</button>
+                <div id="formContainerDelete" style="display:none;"> -->
+                
+                  <form id="employeeDeleteForm" class="form-group">
+                <select id="name-select">
+                <option value="John">John</option>
+                <option value="Jane">Jane</option>
+                <option value="Bob">Bob</option>
+                <option value="Sara">Sara</option>
+                </select>
+
+<button onclick="confirmSelection()">Confirm Selection</button>
               </div>
               <div class="border border-dark bg-white text-dark mb-2">
                 Inner Column 3
