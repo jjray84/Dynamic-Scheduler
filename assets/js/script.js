@@ -4,43 +4,47 @@ var notesList = [];
 var notesArea = $('#notesArea');
 var addNoteBtn = $('#addNoteBtn');
 var weekOf = getCurrentWeek();
-var listOfEmployees = {
-    Jan_Levinson: {
-      name: "Jan",
-      status: "F.T.",
-      daysAvail: "Su, M, Tu, W, Th, F, Sa"
-    },
 
-    Dwight_Schrute: {
-      name: "Dwight",
-      status: "F.T.",
-      daysAvail: "Su, M, W, Th, F, Sa"
-    },
+var listOfEmployees = JSON.parse(localStorage.getItem("employees"));
 
-    Toby_Flanderson: {
-      name: "Toby",
-      Status: "P.T.",
-      daysAvail: "Th, F, Sa"
-    },
 
-    Phyllis_Lapin_Vance: {
-      name: "Phyllis",
-      status: "F.T.",
-      daysAvail: "Su, T, Th, Sa"
-    },
+// var listOfEmployees = {
+//     Jan_Levinson: {
+//       name: "Jan",
+//       status: "F.T.",
+//       daysAvail: "Su, M, Tu, W, Th, F, Sa"
+//     },
 
-    Darryl_Philbin: {
-      name: "Darryl",
-      status: "P.T.",
-      daysAvail: "F, Sa, Su",
-    },
+//     Dwight_Schrute: {
+//       name: "Dwight",
+//       status: "F.T.",
+//       daysAvail: "Su, M, W, Th, F, Sa"
+//     },
 
-    Michael_Scott: {
-      name: "Michael",
-      status: "P.T.",
-      daysAvail: "Tu, W, F, Sa",
-    },
-};
+//     Toby_Flanderson: {
+//       name: "Toby",
+//       Status: "P.T.",
+//       daysAvail: "Th, F, Sa"
+//     },
+
+//     Phyllis_Lapin_Vance: {
+//       name: "Phyllis",
+//       status: "F.T.",
+//       daysAvail: "Su, T, Th, Sa"
+//     },
+
+//     Darryl_Philbin: {
+//       name: "Darryl",
+//       status: "P.T.",
+//       daysAvail: "F, Sa, Su",
+//     },
+
+//     Michael_Scott: {
+//       name: "Michael",
+//       status: "P.T.",
+//       daysAvail: "Tu, W, F, Sa",
+//     },
+// };
 
 
 //Populates the notes area with the saved notes.
@@ -139,12 +143,16 @@ function generateSchedule(){
 //Logic to run when the page initializes
 function init() {
 renderNotes();
-renderWeek(); //sets the date of the current week in the box above calendar
-generateSchedule(); //populates the date boxes based on daysAvail in listOfEmployees, using matchDayAvail function
+//sets the date of the current week in the box above calendar
+renderWeek();
 
+//populates the date boxes based on daysAvail in listOfEmployees, using matchDayAvail function. 
+//Doesn't execute if there is nothing saved in local storage
+  if(listOfEmployees !== null){
+    generateSchedule(); 
+  }
 
 }
-
 
 
 //Event Listener for the add note button
@@ -176,6 +184,14 @@ function notesFromStorage() {
   return JSON.parse(localStorage.getItem("notes"));
 }
 
+
+function saveEmployeesToStorage(){
+  if(listOfEmployees !== null){
+    localStorage.setItem("employees", JSON.stringify(listOfEmployees));
+  }
+}
+
+
 //Displays the add note dialog box
 $(function () {
   $("#dialog").dialog({
@@ -198,4 +214,7 @@ $(function () {
 $('#nav').click(function() {
     location.reload();
 });
+
+
 init();
+saveEmployeesToStorage();
