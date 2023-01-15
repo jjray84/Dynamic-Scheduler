@@ -4,8 +4,38 @@ var notesList = [];
 var notesArea = $('#notesArea');
 var addNoteBtn = $('#addNoteBtn');
 var weekOf = getCurrentWeek();
-
 var listOfEmployees = JSON.parse(localStorage.getItem("employees"));
+  if (listOfEmployees == null){
+    listOfEmployees = [];
+  }
+
+
+
+function openForm() {
+  document.getElementById("formContainer").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("formContainer").style.display = "none";
+}
+
+function submitForm() {
+  let name = document.getElementById("name").value;
+  let status = document.getElementById("status").value;
+  let daysAvail = document.getElementById("daysAvail").value;
+
+  let newEmployee = {
+    name: name,
+    status: status,
+    daysAvail: daysAvail
+  }
+
+  listOfEmployees.push(newEmployee);
+  localStorage.setItem("employees", JSON.stringify(listOfEmployees));
+  console.log(listOfEmployees);
+  closeForm();
+  init();
+}
 
 
 // var listOfEmployees = {
@@ -79,6 +109,7 @@ function getCurrentWeek() {
         var d = monday.add(i, 'day');
         days.push(d.format('MMM D, YYYY'));
     }
+    console.log(days);
     return days;
 }
 
@@ -216,5 +247,8 @@ $('#nav').click(function() {
 });
 
 
+
+
 init();
+//this is gonna be our save button
 saveEmployeesToStorage();
