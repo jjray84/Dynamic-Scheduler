@@ -33,6 +33,7 @@
   border-color: black;
 }
 
+/* styling for notes */
 .notesRow {
   border: 1px;
   border-style: solid;
@@ -41,7 +42,7 @@
 }
 
 #nav:hover {
-cursor: pointer;
-transform: scale(1.1);
-color: black;
+  cursor: pointer;
+  transform: scale(1.1);
+  color: black;
 }
