@@ -1,7 +1,8 @@
 var today = dayjs();
 var notesList = [];
-var notesArea = $("#notesArea");
-var addNoteBtn = $("#addNoteBtn");
+
+var notesArea = document.querySelector('#notesArea');
+var addNoteBtn = $('#addNoteBtn');
 var weekOf = getCurrentWeek();
 var listOfEmployees = JSON.parse(localStorage.getItem("employees"));
 if (listOfEmployees == null) {
@@ -77,18 +78,21 @@ function submitForm() {
 // };
 
 //Populates the notes area with the saved notes.
-function renderNotes() {
-  notesArea.innerHTML = "";
-  notesList = notesFromStorage();
-  if (notesList == null) {
-    return;
-  } else {
-    for (var i = 0; i < notesList.length; i++) {
-      var entry = notesList[i];
-      console.log(entry);
-      var noteItem = $(`<p>${entry.noteTitle}: ${entry.noteDetails}</p>`);
-      console.log(noteItem);
-      notesArea.append(noteItem);
+
+function renderNotes () {
+    notesArea.innerHTML = '';  
+    notesList = notesFromStorage();
+    if (notesList == null) {
+      return
+    } else {
+    for (var i = 0; i<notesList.length; i++) {
+        var entry = notesList[i];
+        console.log(entry);
+        var noteItem = document.createElement("p");
+        noteItem.innerHTML = `${entry.noteTitle}: ${entry.noteDetails}`;
+        console.log(noteItem);
+        notesArea.append(noteItem);
+
     }
   }
 }
