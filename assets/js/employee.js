@@ -42,17 +42,17 @@ function createEmployeeCard() {
   for (var i = 0; i < listOfEmployees.length; i++) {
     var entry = listOfEmployees[i];
     console.log(entry);
-    var banana = "employName" + (i + 1);
-    console.log(banana);
-    document.getElementById(banana).textContent = entry.name;
+    var pichu = "employName" + (i + 1);
+    console.log(pichu);
+    document.getElementById(pichu).textContent = entry.name;
 
     var apple = "status" + (i + 1);
-    console.log(apple);
-    document.getElementById(apple).textContent = entry.status;
+    console.log(pikachu);
+    document.getElementById(pikachu).textContent = entry.status;
 
     var kiwi = "days" + (i + 1);
-    console.log(kiwi);
-    document.getElementById(kiwi).textContent = entry.daysAvail;
+    console.log(raichu);
+    document.getElementById(raichu).textContent = entry.daysAvail;
   }
 }
 
