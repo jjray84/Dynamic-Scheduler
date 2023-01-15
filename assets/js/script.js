@@ -1,7 +1,7 @@
 
 var today = dayjs();
 var notesList = [];
-var notesArea = $('#notesArea');
+var notesArea = document.querySelector('#notesArea');
 var addNoteBtn = $('#addNoteBtn');
 var weekOf = getCurrentWeek();
 var listOfEmployees = JSON.parse(localStorage.getItem("employees"));
@@ -87,7 +87,8 @@ function renderNotes () {
     for (var i = 0; i<notesList.length; i++) {
         var entry = notesList[i];
         console.log(entry);
-        var noteItem = $(`<p>${entry.noteTitle}: ${entry.noteDetails}</p>`);
+        var noteItem = document.createElement("p");
+        noteItem.innerHTML = `${entry.noteTitle}: ${entry.noteDetails}`;
         console.log(noteItem);
         notesArea.append(noteItem);
     }
