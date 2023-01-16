@@ -8,9 +8,19 @@ var listOfEmployees = JSON.parse(localStorage.getItem("employees"));
 if (listOfEmployees == null) {
   listOfEmployees = [];
 }
-
+console.log(listOfEmployees);
 function openForm() {
+  if(document.getElementById("formContainer").style.display === "block"){
+    document.getElementById("formContainer").style.display = "none";
+  } else
   document.getElementById("formContainer").style.display = "block";
+
+
+  //you can only check full time or part time
+  $('input.time').on('change', function() {
+    $('input.time').not(this).prop('checked', false);  
+});
+  
 }
 
 function closeForm() {
@@ -18,64 +28,47 @@ function closeForm() {
 }
 
 function submitForm() {
-  $("#days-of-week input:checkbox:checked").each(function () {
-    console.log($(this).val());
+    var status;
+    var daysAvail = [];
+
+  $("#status input:checkbox:checked").each(function () {
+    status = $(this).val();
   });
 
-  // let name = document.getElementById("name").value;
-  // let status = document.getElementById("status").value;
-  // let daysAvail = document.getElementById("daysAvail").value;
+  $("#days-of-week input:checkbox:checked").each(function () {
+    daysAvail.push($(this).val());
+   
+  });
 
-  // let newEmployee = {
-  //   name: name,
-  //   status: status,
-  //   daysAvail: daysAvail
+if(daysAvail.length == 0){
+  $('#name').val('Enter a valid availability');
+  return;
 }
 
-// listOfEmployees.push(newEmployee);
-// localStorage.setItem("employees", JSON.stringify(listOfEmployees));
-// console.log(listOfEmployees);
-// closeForm();
-// init();
-// }
+  let name = document.getElementById("name").value.trim();
 
-// var listOfEmployees = {
-//     Jan_Levinson: {
-//       name: "Jan",
-//       status: "F.T.",
-//       daysAvail: "Su, M, Tu, W, Th, F, Sa"
-//     },
+  if(name === "" || name == "Enter a valid name"){
+    $('#name').val('Enter a valid name');
+    return;
+  }
 
-//     Dwight_Schrute: {
-//       name: "Dwight",
-//       status: "F.T.",
-//       daysAvail: "Su, M, W, Th, F, Sa"
-//     },
+  let newEmployee = {
+    name: name,
+    status: status,
+    daysAvail: daysAvail
+  }
 
-//     Toby_Flanderson: {
-//       name: "Toby",
-//       Status: "P.T.",
-//       daysAvail: "Th, F, Sa"
-//     },
 
-//     Phyllis_Lapin_Vance: {
-//       name: "Phyllis",
-//       status: "F.T.",
-//       daysAvail: "Su, T, Th, Sa"
-//     },
 
-//     Darryl_Philbin: {
-//       name: "Darryl",
-//       status: "P.T.",
-//       daysAvail: "F, Sa, Su",
-//     },
 
-//     Michael_Scott: {
-//       name: "Michael",
-//       status: "P.T.",
-//       daysAvail: "Tu, W, F, Sa",
-//     },
-// };
+listOfEmployees.push(newEmployee);
+localStorage.setItem("employees", JSON.stringify(listOfEmployees));
+
+closeForm();
+init();
+}
+  
+
 
 //Populates the notes area with the saved notes.
 
@@ -241,6 +234,68 @@ $("#nav").click(function () {
   location.reload();
 });
 
+
+
+
+let nuts = document.getElementById("display-employees-button");
+nuts.addEventListener("click", displayEmployees);
+var count = 0;
+function displayEmployees() {
+  
+  if(count === 1){
+    return;
+  }
+  let listOfEmployees = JSON.parse(localStorage.getItem("employees"));
+
+  if(listOfEmployees.length === 0){
+    return;
+  }
+
+  let select = document.createElement("select");
+  select.id = "employee-select";
+  for (var i=0; i<listOfEmployees.length; i++) {
+    let option = document.createElement("option");
+    option.value = listOfEmployees[i].name;
+    console.log(option.value);
+    option.text = listOfEmployees[i].name;
+    select.appendChild(option);
+  }
+  nuts.appendChild(select);
+  count ++;
+
+  let submitBtn = document.createElement("button");
+  submitBtn.innerText = "Submit";
+  submitBtn.addEventListener("click", removeEmployee);
+  let newDiv = document.createElement("div");
+  document.getElementById('display-employees-button').appendChild(newDiv);
+  document.getElementById('display-employees-button').appendChild(submitBtn);
+}
+
+
+
+function removeEmployee() {
+  let select = document.getElementById("employee-select");
+  let selectedEmployee = select.options[select.selectedIndex].value;
+
+
+  for(var i =0; i<listOfEmployees.length; i++){
+    if(listOfEmployees[i].name == selectedEmployee){
+      listOfEmployees.splice(i,1);
+    }
+  }
+  localStorage.setItem("employees", JSON.stringify(listOfEmployees));
+  location.reload();
+
+}
+
+
+const button = document.getElementById("clear-storage-button");
+button.addEventListener("click", function() {
+    localStorage.clear();
+    location.reload();
+});
+
+
+
 init();
-//this is gonna be our save button
-saveEmployeesToStorage();
+

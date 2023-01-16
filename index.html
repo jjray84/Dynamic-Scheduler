@@ -29,7 +29,7 @@
     <!-- Navbar here -->
     <nav class="navbar navbar-expand-lg bg-primary text-light justify-content-between">
       <h5 id="nav">Dynamic Scheduler</h5> 
-      <button type="button" id="to-list" class="btn btn-secondary p-2 m-3" onclick="location.href='employee.HTML'">List of Employees</button>
+      <button type="button" id="to-list" class="btn btn-secondary p-2 m-3" onclick="location.href='./employee.html'">List of Employees</button>
     </nav>
   </head>
   <body>
@@ -42,7 +42,7 @@
         <div class="col-sm-2 col-md-3">
           <div class="border border-dark p-5 bg-primary text-light">
             <div class="col">
-              <div class="border border-dark bg-white text-dark mb-2">
+              <div class="border border-dark bg-primary text-dark mb-2">
                 <button class="btn btn-primary" onclick="openForm()">Add New Employee</button>
                   <div id="formContainer" style="display:none;">
                     <form id="employeeForm" class="form-group">
@@ -50,9 +50,9 @@
                       <input type="text" id="name" name="name" class="form-control">
                       <label for="status">Status:</label>
                       <!-- <input type="text" id="status" name="status" class="form-control"><br> -->
-                    <div>
-                      <input type="checkbox" name="status" value="Full Time" id="full-time">Full Time
-                      <input type="checkbox" name="status" value="Part Time" id="part-time">Part Time
+                    <div id="status">
+                      <input type="checkbox" name="status" value="Full Time" id="full-time" class="time">Full Time
+                      <input type="checkbox" name="status" value="Part Time" id="part-time" class="time">Part Time
                       <!-- checkbox for part time or full time -->
                     </div>  
                   
@@ -70,29 +70,14 @@
                       
                       <input type="button" value="Submit" class="btn btn-success" onclick="submitForm()">
                       <input type="button" value="Close" class="btn btn-danger" onclick="closeForm()">
-                    
                     </form>
-                  
                   </div>
               </div>
               
               <div class="border border-dark bg-white text-dark mb-2">
-                <!--REMOVE EMPLOYEE SECTION  -->
-                <!-- <button class="btn btn-primary" onclick="openForm()">Remove Employee</button>
-                <div id="formContainerDelete" style="display:none;"> -->
-                
-                  <form id="employeeDeleteForm" class="form-group">
-                <select id="name-select">
-                <option value="John">John</option>
-                <option value="Jane">Jane</option>
-                <option value="Bob">Bob</option>
-                <option value="Sara">Sara</option>
-                </select>
-
-<button onclick="confirmSelection()">Confirm Selection</button>
               </div>
               <div class="border border-dark bg-white text-dark mb-2">
-                Inner Column 3
+                <button class="btn btn-primary" id="clear-storage-button">Clear Schedule</button>
               </div>
             </div>
           </div>
@@ -103,9 +88,6 @@
           <div class="border border-dark p-5 bg-primary text-light">
             <div class="col">
               <!-- Row for dayJS -->
-              <div class="col dayjsRow bg-white text-dark h3" id="dayjsrow">
-                DayJS Row
-              </div>
               <!-- Calendar element -->
 
               <div class="col bg-white text-dark justify-content-between" id="card-area">
