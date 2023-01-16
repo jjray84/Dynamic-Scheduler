@@ -37,12 +37,17 @@ function submitForm() {
 
   $("#days-of-week input:checkbox:checked").each(function () {
     daysAvail.push($(this).val());
+   
   });
 
+if(daysAvail.length == 0){
+  $('#name').val('Enter a valid availability');
+  return;
+}
 
   let name = document.getElementById("name").value.trim();
 
-  if(name === ""){
+  if(name === "" || name == "Enter a valid name"){
     $('#name').val('Enter a valid name');
     return;
   }
@@ -55,10 +60,10 @@ function submitForm() {
 
 
 
-console.log(newEmployee);
+
 listOfEmployees.push(newEmployee);
 localStorage.setItem("employees", JSON.stringify(listOfEmployees));
-console.log(listOfEmployees);
+
 closeForm();
 init();
 }
@@ -282,6 +287,13 @@ function removeEmployee() {
   location.reload();
 
 }
+
+
+const button = document.getElementById("clear-storage-button");
+button.addEventListener("click", function() {
+    localStorage.clear();
+    location.reload();
+});
 
 
 
