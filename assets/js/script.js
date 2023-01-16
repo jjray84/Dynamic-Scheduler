@@ -8,7 +8,7 @@ var listOfEmployees = JSON.parse(localStorage.getItem("employees"));
 if (listOfEmployees == null) {
   listOfEmployees = [];
 }
-
+console.log(listOfEmployees);
 function openForm() {
   if(document.getElementById("formContainer").style.display === "block"){
     document.getElementById("formContainer").style.display = "none";
@@ -225,8 +225,12 @@ $("#nav").click(function () {
 
 let nuts = document.getElementById("display-employees-button");
 nuts.addEventListener("click", displayEmployees);
-
+var count = 0;
 function displayEmployees() {
+  
+  if(count === 1){
+    return;
+  }
   let listOfEmployees = JSON.parse(localStorage.getItem("employees"));
   let select = document.createElement("select");
   select.id = "employee-select";
@@ -238,18 +242,31 @@ function displayEmployees() {
     select.appendChild(option);
   }
   nuts.appendChild(select);
+  count ++;
+
+  let submitBtn = document.createElement("button");
+  submitBtn.innerText = "Submit";
+  submitBtn.addEventListener("click", removeEmployee);
+  let newDiv = document.createElement("div");
+  document.getElementById('display-employees-button').appendChild(newDiv);
+  document.getElementById('display-employees-button').appendChild(submitBtn);
 }
 
-let submitBtn = document.createElement("button");
-submitBtn.innerText = "Submit";
-submitBtn.addEventListener("click", removeEmployee);
-document.body.appendChild(submitBtn);
+
 
 function removeEmployee() {
   let select = document.getElementById("employee-select");
   let selectedEmployee = select.options[select.selectedIndex].value;
-  delete listOfEmployees[selectedEmployee];
+
+
+  for(var i =0; i<listOfEmployees.length; i++){
+    if(listOfEmployees[i].name == selectedEmployee){
+      listOfEmployees.splice(i,1);
+    }
+  }
   localStorage.setItem("employees", JSON.stringify(listOfEmployees));
+  location.reload();
+
 }
 
 
