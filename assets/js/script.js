@@ -14,6 +14,12 @@ function openForm() {
     document.getElementById("formContainer").style.display = "none";
   } else
   document.getElementById("formContainer").style.display = "block";
+
+
+  //you can only check full time or part time
+  $('input.time').on('change', function() {
+    $('input.time').not(this).prop('checked', false);  
+});
   
 }
 
