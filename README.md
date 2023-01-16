@@ -15,7 +15,7 @@ This easy to use application has many features that will assist any smaller busi
 
 ## Contributors
 * <a href="https://github.com/codex-scribe">Matt Brandenburgh</a>
-* <a href="gttps://github.com/jakester101">Jacob Hester</a>
+* <a href="https://github.com/jakester101">Jacob Hester</a>
 * <a href="https://github.com/Melona-png">Madison Woodward</a>
 * <a href="https://github.com/jjray84">Jonathan Ray</a>
 
