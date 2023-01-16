@@ -85,7 +85,6 @@ function renderNotes () {
         noteItem.innerHTML = `${entry.noteTitle}: ${entry.noteDetails}`;
         console.log(noteItem);
         notesArea.append(noteItem);
-
     }
   }
 }
@@ -198,6 +197,7 @@ function addNote(event) {
   }
   console.log(storedNotesList);
   localStorage.setItem("notes", JSON.stringify(notesList));
+
   renderNotes();
 }
 
