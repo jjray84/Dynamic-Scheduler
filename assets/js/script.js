@@ -26,17 +26,20 @@ function submitForm() {
     var daysAvail = [];
 
   $("#status input:checkbox:checked").each(function () {
-    //console.log($(this).val());
     status = $(this).val();
   });
 
   $("#days-of-week input:checkbox:checked").each(function () {
-   // console.log($(this).val());
     daysAvail.push($(this).val());
   });
 
 
-  let name = document.getElementById("name").value;
+  let name = document.getElementById("name").value.trim();
+
+  if(name === ""){
+    $('#name').val('Enter a valid name');
+    return;
+  }
 
   let newEmployee = {
     name: name,
@@ -232,6 +235,11 @@ function displayEmployees() {
     return;
   }
   let listOfEmployees = JSON.parse(localStorage.getItem("employees"));
+
+  if(listOfEmployees.length === 0){
+    return;
+  }
+
   let select = document.createElement("select");
   select.id = "employee-select";
   for (var i=0; i<listOfEmployees.length; i++) {
@@ -271,11 +279,5 @@ function removeEmployee() {
 
 
 
-
-
-
-
 init();
 
-//this is gonna be our save button
-//saveEmployeesToStorage();
