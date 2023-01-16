@@ -1,59 +1,22 @@
 var cardArea = document.getElementById("card-area");
 
-var listOfEmployees = [
-  {
-    name: "Jan",
-    status: "Full Time",
-    daysAvail: "Su, M, Tu, W, Th, F, Sa",
-  },
+var listOfEmployees = JSON.parse(localStorage.getItem("employees"));
 
-  {
-    name: "Dwight",
-    status: "Full Time",
-    daysAvail: "Su, M, W, Th, F, Sa",
-  },
-
-  {
-    name: "Toby",
-    status: "Part Time",
-    daysAvail: "Th, F, Sa",
-  },
-
-  {
-    name: "Phyllis",
-    status: "Full Time",
-    daysAvail: "Su, T, Th, Sa",
-  },
-
-  {
-    name: "Darryl",
-    status: "Part Time",
-    daysAvail: "F, Sa, Su",
-  },
-
-  {
-    name: "Michael",
-    status: "Part Time",
-    daysAvail: "Tu, W, F, Sa",
-  },
-];
-
-function createEmployeeCard() {
+function createCards() {
   for (var i = 0; i < listOfEmployees.length; i++) {
-    var entry = listOfEmployees[i];
-    console.log(entry);
-    var pichu = "employName" + (i + 1);
-    console.log(pichu);
-    document.getElementById(pichu).textContent = entry.name;
-
-    var pikachu = "status" + (i + 1);
-    console.log(pikachu);
-    document.getElementById(pikachu).textContent = entry.status;
-
-    var raichu = "days" + (i + 1);
-    console.log(raichu);
-    document.getElementById(raichu).textContent = entry.daysAvail;
+    var Employee = listOfEmployees[i];
+    console.log(Employee);
+    var newCardHeader = document.createElement("div");
+    newCardHeader.className = "card text-white bg-secondary mb-3";
+    newCardHeader.setAttribute("style", "min-width: 20rem");
+    newCardHeader.innerHTML = `
+      <div class="card-header">${Employee.name}</div>
+      <div class="card-body">
+      <h4 class="card-text">Status: ${Employee.status}</h4>
+      <p>Days Available: ${Employee.daysAvail}</p>
+      </div> `;
+    cardArea.appendChild(newCardHeader);
   }
 }
 
-createEmployeeCard();
+createCards();
