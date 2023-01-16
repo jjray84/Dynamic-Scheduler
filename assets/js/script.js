@@ -25,6 +25,8 @@ function openForm() {
 
 function closeForm() {
   document.getElementById("formContainer").style.display = "none";
+  document.getElementById("employeeForm").reset();
+
 }
 
 function submitForm() {
@@ -150,7 +152,6 @@ function generateSchedule() {
         for (var i = 0; i < data.length; i++) {
           for (var k = 0; k < days.length; k++) {
             if (data[i].date == days[k]) {
-              console.log(data[i].name);
               var element = document.getElementById("day" + k);
               element.innerHTML = data[i].name;
               element.style.backgroundColor = "yellow";
