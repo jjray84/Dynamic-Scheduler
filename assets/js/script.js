@@ -220,6 +220,44 @@ $("#nav").click(function () {
   location.reload();
 });
 
+
+
+
+let nuts = document.getElementById("display-employees-button");
+nuts.addEventListener("click", displayEmployees);
+
+function displayEmployees() {
+  let listOfEmployees = JSON.parse(localStorage.getItem("employees"));
+  let select = document.createElement("select");
+  select.id = "employee-select";
+  for (var i=0; i<listOfEmployees.length; i++) {
+    let option = document.createElement("option");
+    option.value = listOfEmployees[i].name;
+    console.log(option.value);
+    option.text = listOfEmployees[i].name;
+    select.appendChild(option);
+  }
+  nuts.appendChild(select);
+}
+
+let submitBtn = document.createElement("button");
+submitBtn.innerText = "Submit";
+submitBtn.addEventListener("click", removeEmployee);
+document.body.appendChild(submitBtn);
+
+function removeEmployee() {
+  let select = document.getElementById("employee-select");
+  let selectedEmployee = select.options[select.selectedIndex].value;
+  delete listOfEmployees[selectedEmployee];
+  localStorage.setItem("employees", JSON.stringify(listOfEmployees));
+}
+
+
+
+
+
+
+
 init();
 
 //this is gonna be our save button
