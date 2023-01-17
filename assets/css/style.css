@@ -113,6 +113,7 @@ h6 {
 .emp-body {
   background-color: white;
   color: black;
+  font-size: 18px;
 }
 
 #back-btn:hover {
@@ -144,4 +145,8 @@ h5 {
 #to-list:hover {
   background-color: rgb(49, 46, 46);
   color: white;
+}
+
+h4 {
+  font-size: 18px;
 }
