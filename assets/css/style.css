@@ -63,6 +63,7 @@
 }
 
 #noteDialog {
+  align-items: center;
   border-radius: 25px;
   border-width: 1px;
   background-color: white;
@@ -90,6 +91,9 @@ h6 {
 }
 
 #back-btn {
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(190, 190, 190);
   justify-content: flex-end;
   display: flex;
   font-size: 18px;
@@ -127,4 +131,17 @@ h5 {
   border-color:rgb(190, 190, 190);
   border-radius: 10px;
   padding: 5px;
+}
+#to-list {
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(190, 190, 190);
+  margin-bottom: 10px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+#to-list:hover {
+  background-color: rgb(49, 46, 46);
+  color: white;
 }
