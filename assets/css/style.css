@@ -46,6 +46,7 @@
 /* styling for notes */
 .notesRow {
   margin-top: 20px;
+  text-align: center;
 }
 
 #nav {
@@ -65,7 +66,11 @@
   align-items: center;
   border-radius: 25px;
   border-width: 1px;
+  background-color: white;
   border-color: rgb(190, 190, 190);
+  border-style: solid;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .calendarStyling {
@@ -119,6 +124,14 @@ h5 {
   color: black;
 }
 
+#notesArea {
+  text-align: left;
+  border: 1px;
+  border-style: solid;
+  border-color:rgb(190, 190, 190);
+  border-radius: 10px;
+  padding: 5px;
+}
 #to-list {
   border: 2px;
   border-style: solid;
@@ -132,4 +145,3 @@ h5 {
   background-color: rgb(49, 46, 46);
   color: white;
 }
-
