@@ -63,7 +63,7 @@
 }
 
 #noteDialog {
-  alignt-item: center;
+  align-items: center;
   border-radius: 25px;
   border-width: 1px;
   border-color: rgb(190, 190, 190);
@@ -109,4 +109,18 @@ h4 {
 
 h5 {
   color: black;
+}
+
+#to-list {
+  border: 1px;
+  border-style: solid;
+  border-color: rgb(190, 190, 190);
+  margin-bottom: 10px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+#to-list:hover {
+  background-color: rgb(49, 46, 46);
+  color: white;
 }
