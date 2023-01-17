@@ -28,8 +28,11 @@
     <title>Dynamic Scheduler</title>
     <!-- Navbar here -->
     <nav class="navbar navbar-expand-lg bg-white text-dark justify-content-between">
-      <h5 id="nav">Dynamic Scheduler</h5> 
-      <button type="button" id="to-list" class="btn" onclick="location.href='./employee.html'">List of Employees</button>
+    <div class="leftnav">
+    <img src="./assets/gottagofast.png" width="" height="60">
+      <h6 id="nav">Dynamic Scheduler</h6> 
+    </div>  
+      <button type="button" id="to-list" class="btn btn-secondary p-2 m-3" onclick="location.href='./employee.html'">List of Employees</button>
     </nav>
   </head>
   <body>
@@ -78,6 +81,16 @@
               </div>
               <div class="controlpanelButtons">
                 <button class="btn" id="clear-storage-button">Clear Schedule</button>
+              </div>
+              <h4>Add Notes</h4>
+              <div class="notesRow">
+                    <button id="noteDialog">Notes</button>
+                    <div id="dialog">
+                      <input id="noteTitle" placeholder="Title" />
+                      <input id="noteDetails" placeholder="Details" />
+                      <button type="submit" id="addNoteBtn">Submit</button>
+                    </div>
+                    <div id="notesArea"></div>
               </div>
             </div>
           </div>
@@ -146,7 +159,7 @@
                   </div>
               </div>
               <!-- Notes Element -->
-              <h4>Add Notes</h4>
+              <!-- <h4>Add Notes</h4>
               <div class="notesRow" "col notesRow bg-white text-dark">
                     <button id="noteDialog">Notes</button>
                     <div id="dialog">
@@ -155,7 +168,7 @@
                       <button type="submit" id="addNoteBtn">Submit</button>
                     </div>
                     <div id="notesArea"></div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
