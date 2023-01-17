@@ -83,3 +83,34 @@ h6 {
   display: flex;
   align-items: center;
 }
+
+#back-btn {
+  justify-content: flex-end;
+  display: flex;
+  font-size: 18px;
+}
+
+.navbar-emp {
+  color:rgb(150, 150, 150);
+}
+
+.emp-head {
+  background-color: rgb(160, 156, 156);
+  color: rgb(2, 2, 2);
+  font-size: 25px;
+  font-style: oblique;
+}
+
+.emp-body {
+  background-color: white;
+  color: black;
+}
+
+#back-btn:hover {
+  background-color: rgb(49, 46, 46);
+  color: white;
+}
+
+h5 {
+  color: black;
+}
