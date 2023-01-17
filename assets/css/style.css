@@ -86,6 +86,9 @@ h6 {
 }
 
 #back-btn {
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(190, 190, 190);
   justify-content: flex-end;
   display: flex;
   font-size: 18px;
@@ -117,7 +120,7 @@ h5 {
 }
 
 #to-list {
-  border: 1px;
+  border: 2px;
   border-style: solid;
   border-color: rgb(190, 190, 190);
   margin-bottom: 10px;
