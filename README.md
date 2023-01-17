@@ -20,7 +20,7 @@ This easy to use application has many features that will assist any smaller busi
 * <a href="https://github.com/jjray84">Jonathan Ray</a>
 
 ## Screenshot
-
+<img src="./assets/images/screenshot.png/">
 
 ## Live Link
 -https://jjray84.github.io/Dynamic-Scheduler/
