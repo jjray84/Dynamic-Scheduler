@@ -10,8 +10,8 @@ function createCards() {
     newCardHeader.className = "card text-white bg-secondary mb-3";
     newCardHeader.setAttribute("style", "min-width: 20rem");
     newCardHeader.innerHTML = `
-      <div class="card-header">${Employee.name}</div>
-      <div class="card-body">
+      <div class="card-header emp-head">${Employee.name}</div>
+      <div class="card-body emp-body">
       <h4 class="card-text">Status: ${Employee.status}</h4>
       <p>Days Available: ${Employee.daysAvail}</p>
       </div> `;
