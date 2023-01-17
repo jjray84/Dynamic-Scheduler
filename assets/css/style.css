@@ -5,7 +5,6 @@
   margin-bottom: 10px;
   border-radius: 25px;
   text-align: center;
-  
 }
 
 /* styling for day js row in right large column */
@@ -50,7 +49,7 @@
 }
 
 #nav {
-  color:rgb(150, 150, 150)
+  color: rgb(150, 150, 150);
 }
 #nav:hover {
   cursor: pointer;
@@ -74,7 +73,13 @@
   justify-content: center;
 }
 
-h4 {
+h6 {
+  font-size: 40px;
   margin: 20px;
   text-align: center;
+}
+
+.leftnav {
+  display: flex;
+  align-items: center;
 }
